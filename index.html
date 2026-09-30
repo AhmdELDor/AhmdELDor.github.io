@@ -60,8 +60,8 @@
 
   .facts{background:var(--ink);color:#fff}
   .facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-  .facts div{padding:26px 0 26px 28px;border-left:1px solid rgba(255,255,255,.16);font-size:15px;color:rgba(255,255,255,.72)}
-  .facts div:first-child{border-left:0;padding-left:0}
+  .facts .wrap>div{padding:26px 0 26px 28px;border-left:1px solid rgba(255,255,255,.16);font-size:15px;color:rgba(255,255,255,.72)}
+  .facts .wrap>div:first-child{border-left:0;padding-left:0}
   .facts b{display:block;font-family:"Libre Caslon Text",Georgia,serif;font-weight:400;font-size:34px;line-height:1.15;color:#fff}
 
   /* sections: heading column on the left, content on the right */
@@ -127,8 +127,8 @@
     .portrait{order:-1;width:170px;height:210px;margin-bottom:32px}
     .hero .actions{margin-bottom:48px}
     .facts .wrap{grid-template-columns:1fr 1fr}
-    .facts div:nth-child(3){border-left:0;padding-left:0}
-    .facts div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.16)}
+    .facts .wrap>div:nth-child(3){border-left:0;padding-left:0}
+    .facts .wrap>div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.16)}
     .sec{padding:64px 0}
     .sec .wrap{grid-template-columns:1fr;gap:28px}
     .sec h2{position:static}
@@ -144,6 +144,36 @@
     .stack dt{padding-bottom:0}
     .stack dd{border-top:0;padding-top:2px}
     .job{grid-template-columns:1fr}
+  }
+  @media print{
+    @page{size:A4;margin:10mm 0}
+    .sec .wrap>div:first-child{break-after:avoid}
+    #stack,#experience{break-inside:avoid}
+    .work{gap:14px}
+    .proj{padding:22px 24px}
+    .proj p{font-size:14.5px}
+    .proj .tech{margin-top:12px}
+    .proj .go{margin-top:10px}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{font-size:14px}
+    .bar{display:none}
+    .hero{padding-top:48px}
+    .hero .actions{display:none}
+    .hero .lede{margin-bottom:48px}
+    .hero .wrap{grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:center}
+    .portrait{order:0;width:auto;height:270px;margin:0}
+    .hero h1{font-size:48px}
+    .facts .wrap{grid-template-columns:repeat(4,1fr)}
+    .facts .wrap>div:nth-child(n){border-top:0;padding-left:24px}
+    .facts .wrap>div:nth-child(3){border-left:1px solid rgba(255,255,255,.16)}
+    .facts .wrap>div:first-child{padding-left:0}
+    .sec{padding:48px 0}
+    .sec h2{position:static}
+    .proj,.job,.lab>div,.stack dt,.stack dd{break-inside:avoid}
+    .proj h3{font-size:21px}
+    .proj.lead h3{font-size:24px}
+    .contact{padding-top:48px;break-inside:avoid}
+    .foot{margin-top:40px}
   }
 </style>
 </head>
